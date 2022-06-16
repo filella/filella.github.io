@@ -1,37 +1,50 @@
-## Welcome to GitHub Pages
+## Welcome to JESS - Joint Expert Speciation System
 
-You can use the [editor on GitHub](https://github.com/filella/JESS/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+JESS is the world's largest single source of thermodynamic information relating to electrolytes, reactions in aqueous media, and hydrocarbon phase equilibria. The full contents of certain databases are available to inspect online (click the links below to start browsing). 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+Reactions 	
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    80,000 reactions
+    226,000 equilibrium constants
+    32,000 enthalpy values
 
-```markdown
-Syntax highlighted code block
+Species 	
 
-# Header 1
-## Header 2
-### Header 3
+    4,700 primitive species
+    63,000 composite species
+    13,000 chemical names
+    2,000 CAS Registry numbers
 
-- Bulleted
-- List
+Literature 	
 
-1. Numbered
-2. List
+    - 31,000 literature references
+    - 30,000 author names
+    - 2,200 journals/publications
+    - 6,000 keywords
 
-**Bold** and _Italic_ and `Code` text
+The full JESS package also includes the following databases:
+Physicochemical
+Properties 	
 
-[Link](url) and ![Image](src)
-```
+    - 58 properties
+    - 860 solutes
+    - 500,000 property values
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+Electrolyte
+Solubility 	
 
-### Jekyll Themes
+    - 2,200 soluble phases
+    - 120,000 solubility records
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/filella/JESS/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Pitzer
+parameters 	
 
-### Support or Contact
+    - 18,000 parameter values for aqueous electrolyte systems
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Hydrocarbon
+Solubility 	
+
+    - Solid-liquid equilibria (SLE)
+    - 22 natural gas components
+    - 231 data sets (with contributions from Corey Baker and Eric F. May)
