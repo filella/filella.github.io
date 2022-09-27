@@ -8,7 +8,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<h1 align="center"><xsl:value-of select="all_species/species_banner"/></h1>
 	<h2 align="center"><xsl:value-of select="all_species/species_title"/></h2>
 	<h2 align="center"><xsl:value-of select="all_species/species_date"/></h2>
-		<table border="1" bordercolor="black" width="800" align="center">
+		<table border="1" bordercolor="black" width="800" align="center" cellpadding="10px">
 			<xsl:for-each select="all_species/species">
 				<tr border="1">
 					<td colspan="5">&#160;<xsl:value-of select="species_symbol"/>
