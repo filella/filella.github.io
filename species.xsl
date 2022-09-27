@@ -5,7 +5,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
 	<html>
 	<body>
-	<h1>Species</h1>
+	<h1><xsl:value-of select="species_banner"/></h1>
+	<h2><xsl:value-of select="species_title"/></h2>
+	<h2><xsl:value-of select="species_date"/></h2>
 			<table>
 				<tr>
 					<th>Charge</th>
