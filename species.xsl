@@ -8,23 +8,32 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<h1 align="center"><xsl:value-of select="all_species/species_banner"/></h1>
 	<h2 align="center"><xsl:value-of select="all_species/species_title"/></h2>
 	<h2 align="center"><xsl:value-of select="all_species/species_date"/></h2>
-		<table border="1" bordercolor="black" width="800">
+		<table border="1" bordercolor="black" width="800" align="center">
 			<xsl:for-each select="all_species/species">
-				<tr border="1" >
+				<tr border="1">
+					<td colspan="5">&#160;<xsl:value-of select="species_symbol"/>
+							<br/><xsl:value-of select="species_names"/>
+					</td>
+				</tr>
+				<tr border="1">
 					<th>Charge</th>
 					<th>CAS&#160;&#160;&#160;&#160;&#160;&#160;&#160;</th>
 					<th>Count</th>
 					<th>Molecular formula</th>
 					<th>Mol. mass</th>
 				</tr>
-				<tr border="1" >
-					<td colspan="5">&#160;<xsl:value-of select="species_symbol"/>
-							<br/><xsl:value-of select="species_names"/>
-					</td>
-				</tr>
-				<tr border="1" >
+				<tr border="1">
 					<td><xsl:value-of select="species_charge"/></td>
-					<td><xsl:value-of select="species_cas"/></td>
+					<td>
+						<xsl:choose>
+							<xsl:when test="species_cas != ''">
+								<xsl:value-of select="species_cas"/>
+							</xsl:when>
+ 							<xsl:otherwise>
+								<xsl:text>---</xsl:text>
+							</xsl:otherwise>
+						</xsl:choose>
+					</td>
 					<td><xsl:value-of select="species_rxnknt"/></td>
 					<td><xsl:value-of select="species_molfrm"/></td>
 					<td><xsl:value-of select="species_molwgt"/></td>
