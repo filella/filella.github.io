@@ -11,9 +11,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<h1 align="center" style="font-family:courier;"><xsl:value-of select="all_species/species_banner"/></h1>
 	<h2 align="center" style="font-family:courier;"><xsl:value-of select="all_species/species_title"/></h2>
 	<h2 align="center" style="font-family:courier;"><xsl:value-of select="all_species/species_date"/></h2>
-		<xsl:if test="contains(species_symbol, 'EDDA')">
-			<p>&#160;<br/>Species containing the string EDDA<br/>&#160;</p>
-		</xsl:if>
+	<p>&#160;<br/>Species containing the string EDDA<br/>&#160;</p>
 		<table border="1" bordercolor="black" width="1000" align="center" cellpadding="10px" style="font-family:courier;">
 			<xsl:for-each select="all_species/species">
 				<xsl:if test="contains(species_symbol, 'EDDA')">
