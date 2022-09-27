@@ -5,9 +5,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
 	<html>
 	<body>
-	<h1><xsl:value-of select="all_species/species_banner"/></h1>
-	<h2><xsl:value-of select="all_species/species_title"/></h2>
-	<h2><xsl:value-of select="all_species/species_date"/></h2>
+	<h1 align="center"><xsl:value-of select="all_species/species_banner"/></h1>
+	<h2 align="center"><xsl:value-of select="all_species/species_title"/></h2>
+	<h2 align="center"><xsl:value-of select="all_species/species_date"/></h2>
 		<table border="1" bordercolor="black" width="800">
 			<xsl:for-each select="all_species/species">
 				<tr border="1" >
