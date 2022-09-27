@@ -21,7 +21,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 					<th>CAS&#160;&#160;&#160;&#160;&#160;&#160;&#160;</th>
 					<th>Count</th>
 					<th>Molecular formula</th>
-					<t hwidth="140">Mol. mass</th>
+					<th width="140">Mol. mass</th>
 				</tr>
 				<tr border="1">
 					<td align="center"><xsl:value-of select="species_charge"/></td>
