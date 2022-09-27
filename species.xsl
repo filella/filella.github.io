@@ -12,7 +12,7 @@
 					<th>Molecular formula</th>
 					<th>Mol. mass</th>
 				</tr>
-				<xsl:for-each select="species">
+				<xsl:for-each select="all_species/species">
 					<tr>
 						<td colspan="5">&#160;<xsl:value-of select="species_symbol"/>
 								<br/><xsl:value-of select="species_names"/>
