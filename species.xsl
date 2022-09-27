@@ -4,6 +4,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="html"/>
 <xsl:template match="/">
 	<html>
+	<head>
+		<title>JESS species</title>
+	</head>
 	<body>
 	<h1 align="center" style="font-family:courier;"><xsl:value-of select="all_species/species_banner"/></h1>
 	<h2 align="center" style="font-family:courier;"><xsl:value-of select="all_species/species_title"/></h2>
