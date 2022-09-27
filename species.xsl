@@ -5,11 +5,11 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
 	<html>
 	<body>
-	<h1><xsl:value-of select="species_banner"/></h1>
+	<h1><xsl:value-of select="all_species/species_banner"/></h1>
 	<h2><xsl:value-of select="species_title"/></h2>
 	<h2><xsl:value-of select="species_date"/></h2>
 		<table>
-			<xsl:for-each select="species">
+			<xsl:for-each select="all_species/species">
 				<tr>
 					<th>Charge</th>
 					<th>CAS&#160;&#160;&#160;&#160;&#160;&#160;&#160;</th>
