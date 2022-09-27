@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <xsl:stylesheet version="1.0">
 <xsl:output method="html"/>
 <xsl:template match="/">
@@ -12,7 +14,7 @@
 					<th>Molecular formula</th>
 					<th>Mol. mass</th>
 				</tr>
-				<xsl:for-each select="all_species/species">
+				<xsl:for-each select="species">
 					<tr>
 						<td colspan="5">&#160;<xsl:value-of select="species_symbol"/>
 								<br/><xsl:value-of select="species_names"/>
