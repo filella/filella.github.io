@@ -5,13 +5,13 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:template match="/">
 	<html>
 	<body>
-	<h1 align="center"><xsl:value-of select="all_species/species_banner"/></h1>
-	<h2 align="center"><xsl:value-of select="all_species/species_title"/></h2>
-	<h2 align="center"><xsl:value-of select="all_species/species_date"/></h2>
-		<table border="1" bordercolor="black" width="800" align="center" cellpadding="10px">
+	<h1 align="center" style="font-family:courier;"><xsl:value-of select="all_species/species_banner"/></h1>
+	<h2 align="center" style="font-family:courier;"><xsl:value-of select="all_species/species_title"/></h2>
+	<h2 align="center" style="font-family:courier;"><xsl:value-of select="all_species/species_date"/></h2>
+		<table border="1" bordercolor="black" width="800" align="center" cellpadding="10px" style="font-family:courier;">
 			<xsl:for-each select="all_species/species">
 				<tr border="1">
-					<td colspan="5">&#160;<xsl:value-of select="species_symbol"/>
+					<td colspan="5"><xsl:value-of select="species_symbol"/>
 							<br/><xsl:value-of select="species_names"/>
 					</td>
 				</tr>
@@ -23,8 +23,8 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 					<th>Mol. mass</th>
 				</tr>
 				<tr border="1">
-					<td><xsl:value-of select="species_charge"/></td>
-					<td>
+					<td align="center"><xsl:value-of select="species_charge"/></td>
+					<td align="center">
 						<xsl:choose>
 							<xsl:when test="species_cas != ''">
 								<xsl:value-of select="species_cas"/>
@@ -34,9 +34,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 							</xsl:otherwise>
 						</xsl:choose>
 					</td>
-					<td><xsl:value-of select="species_rxnknt"/></td>
+					<td align="center"><xsl:value-of select="species_rxnknt"/></td>
 					<td><xsl:value-of select="species_molfrm"/></td>
-					<td><xsl:value-of select="species_molwgt"/></td>
+					<td align="center"><xsl:value-of select="species_molwgt"/></td>
 				</tr>
 			</xsl:for-each>
 		</table>
