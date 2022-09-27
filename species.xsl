@@ -25,7 +25,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 				</tr>
 				<tr border="1">
 					<td align="center"><xsl:value-of select="species_charge"/></td>
-					<td align="center" hwidth="140">
+					<td align="center" width="140">
 						<xsl:choose>
 							<xsl:when test="species_cas != ''">
 								<xsl:value-of select="species_cas"/>
