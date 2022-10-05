@@ -47,7 +47,7 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 						<td><xsl:value-of select="species_molfrm"/></td>
 						<td align="center"><xsl:value-of select="species_molwgt"/></td>
 					</tr>
-				</xsl:if>
+				<xsl:comment><!-- </xsl:if> --></xsl:comment>
 			</xsl:for-each>
 		</table>
 	</body>
