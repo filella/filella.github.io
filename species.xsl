@@ -13,8 +13,9 @@ xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<h2 align="center" style="font-family:courier;"><xsl:value-of select="all_species/species_date"/></h2>
 	<p>&#160;<br/>Species containing the string EDDA<br/>&#160;</p>
 		<table border="1" bordercolor="black" width="1000" align="center" cellpadding="10px" style="font-family:courier;">
-			<xsl:for-each select="all_species/species">
-				<xsl:if test="contains(species_symbol, 'EDDA')">
+			<xsl:for-each select="all_species/species[contains(species_symbol, 'EDDA')]">
+<!---			<xsl:for-each select="all_species/species">
+				<xsl:if test="contains(species_symbol, 'EDDA')">--->
 					<tr border="1">
 						<td colspan="5">&#160;<br/>
 								<xsl:value-of select="species_symbol"/>
