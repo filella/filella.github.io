@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JESS Thermodynamic Database - Species List</title>
+    <style>
+    body { font-family:courier; }
+    h1, h2 { text-align: center; }    
+    </style>
+</head>
+
+<body>
+<h1 id="species_banner">Loading...</h1>
+<h2 id="species_title"></h2>
+<h2 id="species_date"></h2>
+
+<div align="center">
+    <form name="searchForm" id="searchForm" onsubmit="return search()">
+		Display all species present in the database with fields containing the strings<br/>
+        <label for="searchSymbol">Symbol:</label> <input type="text" name="searchSymbol" id="searchSymbol" size="20"/>
+        or <label for="searchName">Name:</label> <input type="text" name="searchName" id="searchName" size="20"/>
+        <button type="submit" id="submitBtn">Search</button>
+        <button type="reset">Clear</button>
+	</form>
+</div>
+
+<p align="center">Results: <span id="count_results">...</span> / <span id="count_total"></span></p>
+
+<div id="container"></div>
+
+<script language="javascript">
+let xml, species, container;
+// Load XML file
+function loadXMLDoc(filename) {
+    if (window.ActiveXObject) {
+            xhttp = new ActiveXObject("Msxml2.XMLHTTP");
+    } else {
+            xhttp = new XMLHttpRequest();
+    }
+    xhttp.open("GET", filename, false);
+    xhttp.send("");
+    return xhttp.responseXML;
+}
+
+// Just a function to parse text and return default values if necessary
+function getText(element, tagname, defaultValue = '') {
+    if (element == null || tagname == null) return defaultValue;
+    // Get item
+    let item = element.getElementsByTagName(tagname);
+    // Check is not empty
+    if (item == null || item.length == 0) return defaultValue;
+    // Get content
+    let txt = item[0]?.innerHTML;
+    // Return result with trim and replacement of carriage returns
+    return txt.trim().replace(/(?:\r\n|\r|\n)/g, '<br>');
+}
+
+// Search
+function search() {
+    // Get search text
+    let searchSymbol = document.getElementById('searchSymbol').value || '';
+    let searchName = document.getElementById('searchName').value || '';
+    searchSymbol = searchSymbol.trim().toLowerCase();
+    searchName = searchName.trim().toLowerCase();
+
+    // Filter results
+    let results;
+    if (searchSymbol.length > 0) {
+        if (searchName.length === 0) {
+            results = [...species].filter(el => 
+                el.getElementsByTagName('species_symbol')[0]?.textContent.toLowerCase().includes(searchSymbol));
+        } else {
+            results = [...species].filter(el => 
+                (el.getElementsByTagName('species_symbol')[0]?.textContent.toLowerCase().includes(searchSymbol)
+                || el.getElementsByTagName('species_names')[0]?.textContent.toLowerCase().includes(searchName)));
+        }
+    } else if (searchName.length > 0) {
+        results = [...species].filter(el => 
+                el.getElementsByTagName('species_names')[0]?.textContent.toLowerCase().includes(searchName));
+    } else {
+        container.innerHTML = '<p align="center">Please use at least one search field</p>';
+        return false;
+    }
+
+
+ 
+    // Show results
+    document.getElementById('count_results').innerHTML = results.length;
+    if (results.length > 0) {        
+        var txt = '<table border="1" bordercolor="black" width="1000" align="center" cellpadding="10px" id="tbl_results">';
+
+        results.forEach((elt) => {
+            let species_symbol = getText(elt, 'species_symbol');
+            let species_names = getText(elt, 'species_names');
+            let species_charge = getText(elt, 'species_charge');
+            let species_cas = getText(elt, 'species_cas', '---');
+            let species_rxnknt = getText(elt, 'species_rxnknt');
+            let species_molfrm = getText(elt, 'species_molfrm');
+            let species_molwgt = getText(elt, 'species_molwgt');
+            
+            let tpl = 
+            `<tr border="1">
+                <td colspan="5">&#160;<br/>${species_symbol}<br/>${species_names}</td>
+            </tr>
+            <tr border="1">
+                <th>Charge</th>
+                <th>CAS&#160;&#160;&#160;&#160;&#160;&#160;&#160;</th>
+                <th>Count</th><th>Molecular formula</th>
+                <th width="140">Mol. mass</th>
+            </tr>        
+            <tr border="1">
+                <td align="center">${species_charge}</td>
+                <td align="center" width="140">${species_cas}</td>
+                <td align="center">${species_rxnknt}</td>
+                <td>${species_molfrm}</td>
+                <td align="center">${species_molwgt}</td>
+			</tr>`;
+            txt += tpl;
+        });
+
+        txt += '</table>';
+        container.innerHTML = txt;
+        
+    } else {
+        container.innerHTML = '';
+    }
+    return false;
+}
+
+// Initialise and load XML file
+function init() {
+    // Load XML file
+    xml = loadXMLDoc("species.xml");
+    
+    // Get species only
+    species = xml.getElementsByTagName('species');
+
+    container = document.getElementById('container');
+    
+    // Feed some placeholders with name, version and total number of entries
+    document.getElementById('species_banner').innerHTML = xml.getElementsByTagName('species_banner')[0].textContent;
+    document.getElementById('species_title').innerHTML = xml.getElementsByTagName('species_title')[0].textContent;
+    document.getElementById('species_date').innerHTML = xml.getElementsByTagName('species_date')[0].textContent;
+    document.getElementById('count_total').innerHTML = species.length;
+
+    // Load templates
+    tpl_table = document.getElementById('tpl_table');
+    tpl_row = document.getElementById('tpl_row');
+}
+
+init();
+</script>
+</body>
+</html>
